@@ -4,4 +4,5 @@ class Subject < ActiveRecord::Base
 
   validates :title, presence: true, length: {maximum:50},
     uniqueness: true
+  validates :duration, presence: true
 end
