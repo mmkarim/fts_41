@@ -2,11 +2,9 @@ class Admin::SubjectsController < ApplicationController
   load_and_authorize_resource
 
   def new
-    @subject = Subject.new
   end
 
   def create
-    @subject = Subject.new subject_params
     if @subject.save
       flash[:success] = t "subject_created"
       redirect_to subjects_path
