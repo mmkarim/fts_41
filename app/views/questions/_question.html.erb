@@ -1,7 +1,9 @@
-<li>
-  <div class="form-inline">
-    <div class="form-group">
-      <h3> <%= question.content %> </h3>
-    </div>
-  </div>
-</li>
+<tr>
+  <td><%= question.content %></td>
+  <td><%= question.status %></td>
+  <td>
+    <% question.answers.each do |answer| %>
+      <%= answer.content if answer.correct? %>
+    <% end %>
+  </td>
+</tr>
