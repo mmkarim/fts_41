@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.paginate page: params[:page]
+    @q = Question.ransack(params[:q])
+    @questions = @q.result.paginate page: params[:page]
   end
 end

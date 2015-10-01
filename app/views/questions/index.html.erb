@@ -1,6 +1,26 @@
 <% provide :title, t("questions") %>
 <h1><%= t "questions" %></h1>
-<ul class="questions">
-  <%= render @questions %>
-</ul>
-<%= will_paginate @questions %>
+
+<%= search_form_for @q, remote: true do |f| %>
+  <%= f.label :content_cont, t("find") %>
+  <%= f.search_field :content_cont %>
+  <%= f.submit %>
+<% end %>
+
+<div class="row" >
+  <% if @questions.any? %>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th><%= t"questions" %></th>
+          <th><%= t"status" %></th>
+          <th><%= t"answer" %></th>
+        </tr>
+      </thead>
+      <tbody id="show-questions">
+        <%= render @questions %>
+      </tbody>
+      <%= will_paginate @questions %>
+    </table>
+  <% end %>
+</div>
