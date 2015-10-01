@@ -1,0 +1,6 @@
+<% provide :title, t("all_subjects") %>
+<h1><%= t "all_subjects" %></h1>
+<ul class="subjects">
+  <%= render @subjects %>
+</ul>
+<%= will_paginate @subjects %>

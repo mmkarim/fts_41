@@ -14,3 +14,6 @@ en:
   subject_created: "New Subject Created"
   subject_updated: "Subject Updated"
   error: "Errors"
+  all_subjects: "All Subjects"
+  questions: "Questions"
+  subjects: "Subjects"
