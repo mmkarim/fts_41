@@ -8,6 +8,10 @@ class Exam < ActiveRecord::Base
 
   before_create :assign_questions
 
+  def count_correct_answers
+    results.select{|result| result.try :answer_correct}.count
+  end
+
   private
   def assign_questions
     questions = self.subject.questions
