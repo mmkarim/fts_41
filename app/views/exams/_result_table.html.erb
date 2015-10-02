@@ -1,0 +1,22 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th><%= t"questions" %></th>
+      <th><%= t"answer" %></th>
+      <th><%= t"result" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exam.results.each do |result| %>
+      <tr>
+        <td><%= result.question.content %></td>
+        <td>
+          <%= result.answer.try(:content) ? result.answer.content : t("not_selected") %>
+        </td>
+        <td>
+          <%= result.answer.try(:correct) ? t("correct") : t("incorrect") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
