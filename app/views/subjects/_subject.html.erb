@@ -2,7 +2,14 @@
   <div class="form-inline">
     <div class="form-group">
       <h3> <%= subject.title %> </h3>
-      <p> <%= subject.duration %> </p>
     </div>
+    <% if user_signed_in? %>
+      <div class="form-group">
+        <%= form_for [subject, Exam.new] do |f| %>
+          <%= f.hidden_field :subject_id, value: subject.id %>
+          <%= f.submit t("start"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </li>

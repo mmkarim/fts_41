@@ -28,3 +28,7 @@ en:
   answer: "Answer"
   is_correct: "Correct?"
   remove: "Remove"
+  start: "Start Exam"
+  exam_created: "Exam Started"
+  exam_created_failed: "Failed to create Exam"
+  exam: "Exam"

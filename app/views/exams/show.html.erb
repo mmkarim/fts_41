@@ -1,0 +1,26 @@
+<% provide :title, t("exam") %>
+<h2 class="pull-right" ><%= @exam.subject.duration %></h2>
+<h1><%= @exam.subject.title %></h1>
+
+<%= form_for [@exam.subject, @exam], remote: true do |f| %>
+  <div class="exam-box" >
+    <%= f.fields_for :results do |result_builder| %>
+      <% result = result_builder.object %>
+      <% question = result.question %>
+
+      <div class="question-item">
+        <%= result_builder.hidden_field :id %>
+        <p><strong><%= question.content %></strong></p>
+
+        <% question.answers.each do |answer| %>
+          <p>
+            <%= result_builder.radio_button :answer_id, answer.id %>
+            <%= answer.content %>
+          </p>
+        <% end %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+  <%= f.submit t("submit"), class: "btn btn-primary" %>
+<% end %>
