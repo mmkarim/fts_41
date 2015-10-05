@@ -7,9 +7,4 @@ Rails.application.routes.draw do
     resources :exams
   end
   resources :questions, only: [:index]
-
-  namespace :admin do
-    resources :subjects
-    resources :questions
-  end
 end
