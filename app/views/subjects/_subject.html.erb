@@ -7,6 +7,8 @@
       <div class="form-group">
         <%= form_for [subject, Exam.new] do |f| %>
           <%= f.hidden_field :subject_id, value: subject.id %>
+          <%= f.hidden_field :status, value: Settings.exam_state_running %>
+          <%= f.hidden_field :time, value: subject.duration*Settings.minute_to_second %>
           <%= f.submit t("start"), class: "btn btn-primary" %>
         <% end %>
       </div>
