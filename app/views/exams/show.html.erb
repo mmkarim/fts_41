@@ -5,6 +5,14 @@
     <%= t "time" %>
     <div id="timer"><%= @exam.time %></div>
   </h2>
+  <h2 class="pull-left">
+    <button type="button" class="btn btn-default" id="exam-save">
+      <%= t "save" %>
+    </button>
+    <button type="button" class="btn btn-default" id="exam-resume">
+      <%= t "resume" %>
+    </button>
+  </h2>
 <% end %>
 
 <h1><%= @exam.subject.title %></h1>
@@ -25,7 +33,7 @@
           <p>
             <% if @exam.status == Settings.exam_state_finished %>
               <%= result_builder.radio_button :answer_id, answer.id,
-                disabled: :state %>
+                disabled: :true %>
             <% else %>
               <%= result_builder.radio_button :answer_id, answer.id %>
             <% end %>
@@ -38,4 +46,5 @@
   </div>
   <%= f.submit t("submit"), :id=>"exam-submit", class: "btn btn-primary" %>
 <% end %>
+
 <%= render "result_modal" %>

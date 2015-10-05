@@ -40,6 +40,8 @@ function init(){
   var time= document.getElementById("timer").innerText;
   count=parseInt(time)-1;
   timespan = document.getElementById("timer");
+  document.getElementById("exam-save").onclick = save;
+  document.getElementById("exam-resume").onclick = resume;
   start();
 }
 
@@ -54,9 +56,9 @@ function countdowns() {
   if (count == 0) {
     document.getElementById("exam-submit").click();
   }else{
-   count--;
-   document.getElementById("exam_time").value = count;
-   t = setTimeout("countdowns()", 1000);
+    count--;
+    document.getElementById("exam_time").value = count;
+    t = setTimeout("countdowns()", 1000);
  }
 }
 
@@ -64,15 +66,42 @@ function start(){
   if (t==null && count>0){
     countdowns();
   }
+  document.getElementById("exam-resume").style.display = "none";
+  document.getElementById("exam-save").style.display = "block";
+  block_form_action(false);
 }
 
 function stop() {
   clearTimeout(t);
   t = null;
+  block_form_action(true);
+  document.getElementById("exam-resume").style.display = "none";
+  document.getElementById("exam-save").style.display = "none";
+  timespan.style.display = "none";
+
+}
+
+function save() {
+  clearTimeout(t);
+  t = null;
+  document.getElementById("exam-resume").style.display = "block";
+  document.getElementById("exam-save").style.display = "none";
+  block_form_action(true);
+}
+
+function resume() {
+  start();
+}
+
+window.onbeforeunload = function(event){
+  document.getElementById("exam-submit").click();
+}
+
+function block_form_action(action) {
   var inputs = document.getElementsByTagName("input");
   for (var i = 0; i < inputs.length; i++) {
-      if (inputs[i].type === "radio") {
-          inputs[i].disabled = true;
-      }
+    if (inputs[i].type === "radio") {
+      inputs[i].disabled = action;
+    }
   }
 }
