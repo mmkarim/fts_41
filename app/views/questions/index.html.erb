@@ -7,14 +7,20 @@
   <%= f.submit %>
 <% end %>
 
+  <h2 class="pull-right">
+    <button type="button" class="btn btn-default" id="suggest-question-button">
+      <%= t "suggest_question" %>
+    </button>
+  </h2>
+
 <div class="row" >
   <% if @questions.any? %>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th><%= t"questions" %></th>
-          <th><%= t"status" %></th>
           <th><%= t"answer" %></th>
+          <th><%= t"created_at" %></th>
         </tr>
       </thead>
       <tbody id="show-questions">
@@ -24,3 +30,5 @@
     </table>
   <% end %>
 </div>
+
+<%= render "suggest_question_modal" %>

@@ -1,3 +1,4 @@
 exam_state_running: 0
 exam_state_finished: 1
 minute_to_second: 60
+question_status_suggested: 0
