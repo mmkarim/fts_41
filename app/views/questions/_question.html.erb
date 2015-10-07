@@ -1,9 +1,9 @@
 <tr>
   <td><%= question.content %></td>
-  <td><%= question.status %></td>
   <td>
     <% question.answers.each do |answer| %>
       <%= answer.content if answer.correct? %>
     <% end %>
   </td>
+  <td><%= question.created_at %></td>
 </tr>

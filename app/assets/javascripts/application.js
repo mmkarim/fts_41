@@ -30,6 +30,9 @@ function add_fields(link, association, content) {
 
 $(document).ready(function(){
   init();
+  if(document.getElementById("suggest-question-button") != null){
+    document.getElementById("suggest-question-button").onclick = modal_show;
+  }
 })
 
 var count;
@@ -37,12 +40,14 @@ var t = null;
 var timespan;
 
 function init(){
-  var time= document.getElementById("timer").innerText;
-  count=parseInt(time)-1;
-  timespan = document.getElementById("timer");
-  document.getElementById("exam-save").onclick = save;
-  document.getElementById("exam-resume").onclick = resume;
-  start();
+  if(document.getElementById("timer") != null){
+    var time= document.getElementById("timer").innerText;
+    count=parseInt(time)-1;
+    timespan = document.getElementById("timer");
+    document.getElementById("exam-save").onclick = save;
+    document.getElementById("exam-resume").onclick = resume;
+    start();
+  }
 }
 
 function display() {
@@ -104,4 +109,8 @@ function block_form_action(action) {
       inputs[i].disabled = action;
     }
   }
+}
+
+function modal_show() {
+  $("#question-modal").modal("show");
 }

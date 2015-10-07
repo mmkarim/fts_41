@@ -43,3 +43,6 @@ en:
   time: "Time:"
   save: "Save"
   resume: "Resume"
+  created_at: "Created At"
+  suggest_question: "Suggest Question"
+  finish: "Finish"

@@ -1,0 +1,9 @@
+<% if @question.errors.any? %>
+  $("form.new_question").prepend('<%= escape_javascript(render "shared/errors", target: @question) %>');
+<% else %>
+  $("#question-modal").modal("hide");
+  $("#show-questions").prepend('<%= escape_javascript(render "question", question: @question) %>');
+  $("#new_question").each(function(){
+    this.reset();
+  });
+<% end %>
