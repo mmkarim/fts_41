@@ -21,7 +21,9 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      except ["Result"]
+    end
     export
     bulk_delete
     show
