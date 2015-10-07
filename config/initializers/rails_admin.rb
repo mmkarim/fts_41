@@ -35,4 +35,27 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model "Answer" do
+    visible false
+  end
+
+  config.model "Question" do
+    list do
+      configure :updated_at do
+        hide
+      end
+    end
+
+    edit do
+      configure :subject do
+        inline_add false
+        inline_edit false
+      end
+    end
+  end
+
+  config.model "User" do
+    exclude_fields :remember_created_at, :created_at, :reset_password_sent_at
+  end
 end
