@@ -1,3 +1,4 @@
+require "sidekiq/web"
 Rails.application.routes.draw do
   root "static_pages#home"
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
@@ -7,4 +8,6 @@ Rails.application.routes.draw do
     resources :exams
   end
   resources :questions
+
+  mount Sidekiq::Web, at: "/sidekiq"
 end

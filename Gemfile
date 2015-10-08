@@ -20,6 +20,9 @@ gem "cancancan"
 gem "ransack"
 gem "rails_admin"
 gem "kaminari"
+gem "sidekiq"
+gem "sinatra", require: false
+gem "slim"
 
 group :development, :test do
   gem "sqlite3",     "1.3.9"

@@ -16,6 +16,7 @@ class ExamsController < ApplicationController
 
   def update
     @exam.update_attributes exam_params
+    ResultMaker.perform_async @exam.id
     respond_to do |format|
       format.html {redirect_to [@exam.subject, @exam]}
       format.js
