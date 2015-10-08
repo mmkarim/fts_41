@@ -5,6 +5,7 @@ class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
 
   scope :suggested_questions, -> {where status: Settings.question_status_suggested}
+  scope :active, -> {where status: Settings.question_status_active}
 
   validates :subject_id, presence: true
   validates :content, presence: true, length: {maximum: 80},

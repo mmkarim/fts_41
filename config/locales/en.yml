@@ -46,3 +46,8 @@ en:
   created_at: "Created At"
   suggest_question: "Suggest Question"
   finish: "Finish"
+  subject: "Exam Result"
+  dear: "Dear "
+  score: "You score"
+  in_exam: "in the exam number: "
+  subject: "Exam Result"

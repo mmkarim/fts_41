@@ -14,7 +14,7 @@ class Exam < ActiveRecord::Base
 
   private
   def assign_questions
-    questions = self.subject.questions
+    questions = self.subject.questions.active
     questions.each{|question| self.results.build question: question}
   end
 end
