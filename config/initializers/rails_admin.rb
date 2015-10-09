@@ -52,6 +52,8 @@ RailsAdmin.config do |config|
         inline_add false
         inline_edit false
       end
+
+      exclude_fields :results, :exams
     end
   end
 
