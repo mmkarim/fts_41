@@ -51,3 +51,4 @@ en:
   score: "You score"
   in_exam: "in the exam number: "
   subject: "Exam Result"
+  create_exam_reminder: "Reminder About Creating an Exam"
