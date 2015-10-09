@@ -8,8 +8,7 @@ class Question < ActiveRecord::Base
   scope :active, -> {where status: Settings.question_status_active}
 
   validates :subject_id, presence: true
-  validates :content, presence: true, length: {maximum: 80},
-    uniqueness: true
+  validates :content, presence: true, length: {maximum: 80}
   validates_associated :answers
 
   accepts_nested_attributes_for :answers,
