@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to "/", alert: exception.message
+    if current_user.admin?
+      redirect_to "/admin", alert: exception.message
+    else
+      redirect_to "/", alert: exception.message
+    end
   end
 
   protected

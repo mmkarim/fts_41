@@ -1,11 +1,11 @@
-10.times do |n|
+3.times do |n|
   title = "Subject #{n+1}"
   duration = 10
   Subject.create(title: title, duration: duration)
 end
 
 subjects = Subject.order(:created_at).take(9)
-15.times do |n|
+3.times do |n|
   content = "Question #{n+1}"
   subjects.each {|subject| subject.questions.create!(content: content,status: 1)}
 end

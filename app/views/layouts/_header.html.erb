@@ -3,13 +3,18 @@
     <%= link_to t("title"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("home"), root_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to t("subjects"), subjects_path %></li>
-          <li><%= link_to t("questions"), questions_path %></li>
+          <% unless current_user.admin? %>
+            <li><%= link_to t("home"), root_path %></li>
+            <li><%= link_to t("subjects"), subjects_path %></li>
+            <li><%= link_to t("questions"), questions_path %></li>
+          <% else %>
+            <li><%= link_to t("home"), rails_admin_path %></li>
+          <% end %>
           <li><%= link_to t("sign_out"), destroy_user_session_path,
                   method: :delete %>
         <% else %>
+          <li><%= link_to t("home"), root_path %></li>
           <li><%= link_to t("sign_up"), new_user_registration_path %>
           <li><%= link_to t("sign_in"), new_user_session_path %></li>
         <% end %>
