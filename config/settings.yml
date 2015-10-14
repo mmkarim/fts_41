@@ -3,3 +3,4 @@ exam_state_finished: 1
 minute_to_second: 60
 question_status_suggested: 0
 question_status_active: 1
+max_lentgh_subject_title: 50
