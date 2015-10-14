@@ -4,4 +4,3 @@ FactoryGirl.define do
     subject
   end
 end
-
