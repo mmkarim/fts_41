@@ -6,6 +6,7 @@ FactoryGirl.define do
 
     factory :admin do
       admin true
+      password "123456"
     end
 
     factory :invalid_password do
