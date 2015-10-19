@@ -54,3 +54,6 @@ en:
   create_exam_reminder: "Reminder About Creating an Exam"
   sign_out: "Sign Out"
   search: "Search"
+  log_out: "Log out"
+  users: "Users"
+  dashboard: "Dashboard"
