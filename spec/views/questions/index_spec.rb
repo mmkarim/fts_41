@@ -29,4 +29,15 @@ feature "In Question View" do
   scenario "Form has content field field" do
     expect(find "#new_question").to have_field("Questions Content")
   end
+
+  scenario "form modal should visible after button click" do
+    click_button I18n.t "suggest_question"
+    expect(page).to have_selector("#question-modal", visible: true)
+  end
+
+  scenario "form modal should not visible when cancel clicked" do
+    click_button I18n.t "suggest_question"
+    click_button I18n.t "cancel"
+    expect(page).to have_selector("#question-modal", visible: false)
+  end
 end
