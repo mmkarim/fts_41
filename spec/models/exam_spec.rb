@@ -17,4 +17,12 @@ describe Exam do
     it{should belong_to(:subject)}
     it{should belong_to(:user)}
   end
+
+  describe "methods" do
+    it "should pass with stubs" do
+      exam = instance_double("Exam")
+      allow(exam).to receive(:count_correct_answers) {0}
+      expect(exam.count_correct_answers).to eq(0)
+    end
+  end
 end
