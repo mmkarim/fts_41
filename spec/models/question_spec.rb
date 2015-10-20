@@ -40,4 +40,20 @@ describe Question do
   describe "accept nested attributes for" do
     it{should accept_nested_attributes_for(:answers).allow_destroy(true)}
   end
+
+  describe "scope" do
+    it "should pass with stubs" do
+      question = class_double("Question")
+      allow(question).to receive(:suggested_questions) {0}
+      expect(question.suggested_questions).to eq(0)
+    end
+  end
+
+  describe "scope" do
+    it "should pass with stubs" do
+      question = class_double("Question")
+      allow(question).to receive(:active) {0}
+      expect(question.active).to eq(0)
+    end
+  end
 end
