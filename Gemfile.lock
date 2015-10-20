@@ -359,6 +359,7 @@ DEPENDENCIES
   rails_12factor (= 0.0.2)
   rails_admin
   ransack
+  rspec-mocks
   rspec-rails (~> 3.0)
   sass-rails (= 5.0.2)
   sdoc (= 0.4.0)
@@ -373,3 +374,6 @@ DEPENDENCIES
   web-console (= 2.0.0.beta3)
   whenever
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.10.6

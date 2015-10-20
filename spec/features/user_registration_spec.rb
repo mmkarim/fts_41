@@ -1,9 +1,9 @@
 require "rails_helper"
 
 feature "User registration in" do
-  let(:user){FactoryGirl.build :user}
 
   scenario "with valid credentials" do
+    user = double("user", email: "abc@abc.com",password: "12345678")
     visit new_user_registration_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
@@ -14,6 +14,7 @@ feature "User registration in" do
   end
 
   scenario "with invalid credentials" do
+    user = double("user", email: "abc@abc.com",password: "12345678")
     visit new_user_registration_path
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
