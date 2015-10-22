@@ -34,6 +34,8 @@ group :development, :test do
   gem "rspec-mocks"
   gem "factory_girl_rails"
   gem "capybara"
+  gem "selenium-webdriver"
+  gem "capybara-webkit"
   gem "database_cleaner"
   gem "shoulda-matchers", "2.8.0"
 end
