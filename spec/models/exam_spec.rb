@@ -13,9 +13,13 @@ describe Exam do
 
   describe "association" do
     it {should have_many(:results)}
-    it {should have_many(:questions)}
+    it {should have_many(:questions).through(:results)}
     it{should belong_to(:subject)}
     it{should belong_to(:user)}
+  end
+
+  describe "accept nested attributes for" do
+    it{should accept_nested_attributes_for(:results).allow_destroy(true)}
   end
 
   describe "methods" do

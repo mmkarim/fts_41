@@ -4,7 +4,7 @@ class Exam < ActiveRecord::Base
   has_many :results
   has_many :questions, through: :results
 
-  accepts_nested_attributes_for :results
+  accepts_nested_attributes_for :results, allow_destroy: true
 
   before_create :assign_questions
 
