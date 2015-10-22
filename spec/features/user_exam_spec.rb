@@ -35,11 +35,11 @@ feature "In Exam Show" do
   end
 
   scenario "result modal should not visible" do
-    expect(page).to have_selector("#result-modal", visible: false)
+    expect(page).to have_css("div.modal.fade")
   end
 
-  scenario "after finish result modal should visible" do
+  scenario "after finish result modal should visible", js: true do
     click_button I18n.t "finish"
-    expect(page).to have_selector("#result-modal", visible: true)
+    expect(page).to have_css("div.modal.fade.in")
   end
 end
