@@ -20,15 +20,15 @@ describe Subject do
   end
 
   describe "validation" do
-    it {should ensure_length_of(:title).is_at_most(Settings.max_lentgh_subject_title)}
+    it {should validate_length_of(:title).is_at_most(Settings.max_lentgh_subject_title)}
     it {should validate_presence_of(:title)}
     it {should validate_presence_of(:duration)}
     it {should validate_uniqueness_of(:title)}
   end
 
   describe "association" do
-    it {should have_many(:exams)}
-    it {should have_many(:questions)}
+    it {should have_many(:exams).dependent(:destroy)}
+    it {should have_many(:questions).dependent(:destroy)}
   end
 
   describe "#questions" do
