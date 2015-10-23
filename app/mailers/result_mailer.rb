@@ -1,6 +1,5 @@
 class ResultMailer < ApplicationMailer
-  def result(user,exam)
-    @exam = exam
+  def result user
     @user = user
     mail to: @user.email, subject: t("subject")
   end
