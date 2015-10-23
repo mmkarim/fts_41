@@ -8,7 +8,7 @@ feature "User signs in" do
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button I18n.t "sign_in"
-
+    save_and_open_page
     expect(page).to have_content(I18n.t "devise.sessions.signed_in")
   end
 
@@ -17,7 +17,7 @@ feature "User signs in" do
     fill_in "Email", with: user.email
     fill_in "Password", with: "other_password"
     click_button I18n.t "sign_in"
-
+    save_and_open_page
     expect(page).not_to have_content(I18n.t "devise.sessions.signed_in")
   end
 end

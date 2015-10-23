@@ -36,6 +36,8 @@ group :development, :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "capybara-webkit"
+  gem "launchy"
+  gem "email_spec"
   gem "database_cleaner"
   gem "shoulda-matchers", "2.8.0"
 end
